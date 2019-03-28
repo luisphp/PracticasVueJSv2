@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Ajax | VueJS v2 | Luis Hurtado</title>
+
+	<!--Bootstrap 4.0-->
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+
+	<div id="main" class="container">
+
+		<div class="row">
+
+		<div class="col-sm-4">
+
+			<h1> Lista VUE js - AJAX </h1>
+
+			<li class="list-group">
+
+				<li v-for="item in lists" class="list-group-item hoover">
+					{{item.name.first}} {{item.name.last}}
+				</li>
+				
+			</li>
+
+		</div>
+
+		<div class="col-sm-8">
+
+			<h1> JSON </h1>
+
+			<pre>
+
+				{{ $data | json }}
+
+			</pre>
+
+
+		</div>
+
+</div>
+		
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.min.js"></script>
+	<script type="text/javascript">
+		var urlUsers = 'https://randomuser.me/api/?results=10';
+
+		new Vue({
+
+			el: '#main',
+			data: {
+				lists: []
+			},
+			created: function(){
+				this.getUsers();
+			},
+			methods: {
+				getUsers: function(){
+					this.$http.get(urlUsers).then(function(response){
+
+						this.lists = response.data.results;
+
+					});
+				}
+
+			}
+			
+		});
+
+	</script>
+	
+</body>
+</html>
