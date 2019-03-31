@@ -20,13 +20,13 @@
 
 			<h1>VUE js - AJAX  axio</h1>
 
-			<li class="list-group">
+			<ul class="list-group">
 
-				<li v-for="item in lists" class="list-group-item hoover">
+				<li v-for="item in lists" class="list-group-item">
 					{{item.name.first}} {{item.name.last}}
 				</li>
 				
-			</li>
+			</ul>
 
 		</div>
 
@@ -57,9 +57,6 @@
 			el: '#main',
 			data: {
 				lists: []
-			},
-			created: function(){
-				this.getUsers();
 			},
 			methods: {
 				getUsers: function(){

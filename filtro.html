@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Filtros | VueJS | Luis Hurtado</title>
+	
+	<!--Bootstrap 4.0-->
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+
+	<!--La directiva v-show se utiliza para mostrar de forma condicional, algo-->
+
+	<div id="main">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-md-4">
+					
+					<h3>Filtro en Vue.JS usan Ajax</h3> 
+
+					<button v-on:click="getUsers" class="btn btn-primary" v-if="!lists.lenght"> Listar </button>
+
+					<ul class="list-group" v-if="lists.lenght">
+
+						<li class="list-group-item" v-for="item in lists">
+							
+							{{item.name.first}} 
+
+						</li>
+
+					</ul>
+
+				</div>
+
+				<div class="col-md-8">
+
+					<h1>JSON</h1>
+
+					<pre>
+						{{ $data  }}
+					</pre>
+
+				</div>
+
+
+			</div>
+
+		</div>
+		
+
+
+	</div>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+
+	<script type="text/javascript">
+
+		
+
+		new Vue({
+
+			el: '#main',
+			data:{
+				lists: [],
+
+			},
+			methods:{
+
+				getUsers:function(){ 
+				var urlUsers = 'https://randomuser.me/api/?results=10';
+				axios.get(urlUsers).then(response => {
+					this.lists = response.data.results;
+					});
+
+				}
+				
+			}
+		});
+
+	</script>
+	
+</body>
+</html>
