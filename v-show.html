@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>v-show | VueJS | Luis Hurtado</title>
+	
+	<!--Bootstrap 4.0-->
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+
+	<!--La directiva v-show se utiliza para mostrar de forma condicional, algo-->
+
+	<div id="main">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-md-12">
+
+					<h3>Mandar Correo Semanal</h3>
+
+				</div>
+
+				<div class="col-md-5">
+
+					<input type="text" v-model="email" class="form-control">
+
+				</div>
+
+				<!--Si hay algo en el campo "email" pos se muestra el boton -->
+
+				<div class="col-md-1">
+
+					<input type="submit" v-show="email" class="btn btn-primary">
+
+				</div>
+
+			</div>
+
+		</div>
+		
+
+
+	</div>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+	<script type="text/javascript">
+
+		new Vue({
+			el: '#main',
+			data:{
+				email: ''
+			}
+		});
+
+	</script>
+	
+</body>
+</html>
