@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Events | VueJS | Luis Hurtado</title>
+	
+	<!--Bootstrap 4.0-->
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+
+	<!--La directiva v-show se utiliza para mostrar de forma condicional, algo-->
+
+	<div id="main">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-md-12">
+					
+					<h3>Eventos en Vue JS</h3>
+
+				</div>
+
+				<div class="col-md-4">
+
+					<div class="input-group">
+
+						<input type="text" class="form-control" v-model="name">
+
+						<span  class="input-group-btn"> 
+
+							<input type="button" class="btn btn-primary" value="add" v-on:click="addName">
+
+						</span>
+
+					</div>
+
+					<hr>
+
+					<ul class="list-group">
+
+						<li class="list-group-item" v-for="item in people" v-text="item"></li>
+
+					</ul>
+
+				</div>
+
+				<div class="col-md-4">
+					<button v-on:click="num += 1">
+					{{ num }}	 Like
+					</button>
+
+				</div>
+
+			</div>
+
+		</div>
+		
+
+
+	</div>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+	<script type="text/javascript">
+
+		new Vue({
+			el: '#main',
+			data:{
+				people: ['Pedicles', 'Amith', 'Aiora', 'Stimated'],
+				name: '',
+				num: 0,
+
+			},
+			methods:{
+				addName: function(){
+					this.people.push(this.name);
+					this.name = '';
+
+				}
+
+			}
+		});
+
+	</script>
+	
+</body>
+</html>
