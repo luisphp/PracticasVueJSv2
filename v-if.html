@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>v-if, v-else | VueJS | Luis Hurtado</title>
+	
+	<!--Bootstrap 4.0-->
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+
+	<!--La directiva v-show se utiliza para mostrar de forma condicional, algo-->
+
+	<div id="main">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-md-5">
+
+					<h3 v-if="!message">Escribe tu sugerencia</h3>
+
+					<h3 v-if="message">Presiona enter para enviar</h3>
+
+					<!--Si gustas tambien peudes usar v-else que va a tomar el v-if que tenga encima para obtener el mismo resultado, solo debe escribir v-else
+					
+					<h3 v-else>Presiona enter para enviar</h3>
+
+					-->
+
+					<textarea class="form-control" v-model="message"></textarea> 
+
+					
+
+				</div>
+
+				<div class="col-md-5">
+
+					<h3>JSON</h3>
+
+					<pre>
+
+						{{ $data }}
+
+					</pre>
+
+				</div>
+
+				
+
+			</div>
+
+		</div>
+		
+
+
+	</div>
+
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+	<script type="text/javascript">
+
+		new Vue({
+			el: '#main',
+			data:{
+				message: ''
+			}
+		});
+
+	</script>
+	
+</body>
+</html>
